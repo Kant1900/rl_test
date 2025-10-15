@@ -12,15 +12,15 @@ class PathPlanningEnv_3d(gym.Env):
         self.start = np.array([1.5, 1.5, 1.5], dtype=np.float32)
         self.goal = np.array([9.6, 9.6, 9.6], dtype=np.float32)
         self.velocity = np.array([0.0, 0.0, 0.0], dtype=float)
-        self.obstacles = np.array([   #位置，x,y,z,半径
+        self.obstacles_cylindar = np.array([   #位置，x,y,z,半径
             [5, 5, 5, 1.5], 
             [6, 8, 8, 0.5], 
             [8, 10, 10, 0.5],
             [8, 2, 2, 0.5], 
             [10, 6, 6, 1]
         ], dtype=np.float32)
-        self.obs_centers = self.obstacles[:, :3]
-        self.obs_radius = self.obstacles[:, 3]
+        self.obs_centers = self.obstacles_cylindar[:, :3]
+        self.obs_radius = self.obstacles_cylindar[:, 3]
         self.ideal_goal_speed_min = 0.1  # 理想的到达目标的最小速度
         self.ideal_goal_speed_max = 0.3  # 理想的到达目标的最大速度
         self.speed_tolerance = 0.2  # 理想速度的容忍度
