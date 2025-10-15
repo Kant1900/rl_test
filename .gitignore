@@ -1,0 +1,12 @@
+best_model/
+best_model1/
+dqn_tensorboard/
+dqn_tensorboard1/
+logs/
+__pycache__/
+
+
+
+.vscode/
+
+*.zip
