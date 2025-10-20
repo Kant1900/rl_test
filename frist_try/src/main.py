@@ -224,7 +224,7 @@ eval_env = CustomEnv()
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)  
-model_path = os.path.join(parent_dir, 'best_model1', 'best_model')   #model1效果比较好
+model_path = os.path.join(parent_dir, 'best_model')      # 最佳模型保存路径  改这里
 
 # 设置评估回调，自动保存最佳模型
 eval_callback = EvalCallback(
@@ -263,7 +263,8 @@ model.save(os.path.join(parent_dir, 'dqn_path_agent')) # 保存最终模型
 print("\n测试最佳模型...")
 try:
     # 加载自动保存的最佳模型
-    best_model = DQN.load(model_path)
+    model_path_save = os.path.join(model_path, 'best_model') 
+    best_model = DQN.load(model_path_save)
     print(" 使用自动保存的最佳模型进行测试")
     test_model = best_model
 except Exception as e:
